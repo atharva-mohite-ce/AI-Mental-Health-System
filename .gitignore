@@ -11,3 +11,5 @@ bert_results/
 # OS files
 .DS_Store
 Thumbs.db
+
+model/saved_models/bert_model/model.safetensors
