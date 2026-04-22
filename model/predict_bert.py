@@ -4,13 +4,12 @@ import torch.nn.functional as F
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from utils.scoring import compute_score, get_emotion_type
 from utils.correction import keyword_override
-import os
 
-# Load from local trained model
-MODEL_PATH = os.path.join(os.path.dirname(__file__), "saved_models", "bert_model")
+# Load from HuggingFace Model Hub (your own trained model)
+MODEL_NAME = "atharva-mohite-ce/mental-health-bert"
 
-tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
-model = AutoModelForSequenceClassification.from_pretrained(MODEL_PATH)
+tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+model = AutoModelForSequenceClassification.from_pretrained(MODEL_NAME)
 model.eval()
 
 # Exact labels in exact order from training
